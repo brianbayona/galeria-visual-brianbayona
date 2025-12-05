@@ -1,0 +1,133 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+}
+
+/* ===== HEADER - Ejercicio C2 ===== */
+.custom-header {
+    position: relative;
+    background-image: url("https://cdn.pixabay.com/photo/2020/10/22/18/18/motor-5676767_1280.jpg");
+    height: 45vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.custom-header h1,
+.custom-header p {
+    position: relative;
+    z-index: 2;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+/* ===== Cajas en general ===== */
+section {
+    padding: 40px 10px;
+}
+
+.palette-container,
+.gradients {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* ===== Paleta de colores - Ejercicio C1 ===== */
+.color-box {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+}
+
+.hex  { background: #ff5733; }
+.name { background: blue; }
+.rgb  { background: rgb(60, 179, 113); }
+.rgba { background: rgba(255, 255, 0, 0.5); }
+.mix  { background: rgb(50%, 20%, 80%); }
+
+/* ===== Gradientes - Ejercicio C3 ===== */
+.gradient-box {
+    width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal {
+    background: linear-gradient(to right, red, black);
+}
+
+.angled {
+    background: linear-gradient(45deg, cyan, purple);
+}
+
+.radial {
+    background: radial-gradient(circle, orange, brown);
+}
+
+/* ===== Transparencia - Ejercicio A4 ===== */
+.transparencia {
+    background: rgba(255, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* ===== Mini banner - Ejercicio C4 ===== */
+.mini-banner {
+    background: linear-gradient(to right, #ff0000, #000000);
+    padding: 25px;
+    margin: 30px auto;
+    border-radius: 10px;
+    width: 70%;
+    font-size: 20px;
+    background-image: url("https://cdn.pixabay.com/photo/2015/12/09/16/33/motorcycle-1084987_640.jpg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+}
+
+/* ===== Conversión Hex → RGB - Ejercicio A5 ===== */
+.hexToRgb {
+    background: rgb(30, 144, 255);
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+/* ===== Imagen de fondo adicional - Ejercicio A3 ===== */
+.fondo-img {
+    background-image: url("https://cdn.pixabay.com/photo/2016/08/28/11/26/bike-1625708_640.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 70px 20px;
+    margin-top: 50px;
+}
+
+.fondo-img h2, .fondo-img p {
+    background: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
