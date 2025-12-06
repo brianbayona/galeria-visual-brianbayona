@@ -1,133 +1,162 @@
-/* Reset básico */
+/* === PALETA DRAGON BALL === */
+:root {
+    --db-orange: #ff8c00;
+    --db-yellow: #ffd600;
+    --db-blue-dark: #001f3f;
+    --db-blue: #0066cc;
+    --db-black: #0a0a0a;
+    --white: #ffffff;
+}
+
+/* === BASE === */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #111;
-    color: #fff;
+    font-family: "Poppins", Arial, sans-serif;
+    background: radial-gradient(circle at top, #0e0e0e 0%, #000000 100%);
+    color: var(--white);
 }
 
-/* ===== HEADER - Ejercicio C2 ===== */
-.custom-header {
+/* TITULOS */
+h2 {
+    color: var(--db-yellow);
+    text-shadow: 0 0 10px var(--db-yellow);
+}
+
+/* === HEADER ESTILO DRAGON BALL === */
+.db-header {
     position: relative;
-    background-image: url("https://cdn.pixabay.com/photo/2020/10/22/18/18/motor-5676767_1280.jpg");
-    height: 45vh;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("img/db_header.webp");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    color: var(--white);
 }
 
-.custom-header h1,
-.custom-header p {
+.db-header .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+}
+
+.db-header h1 {
     position: relative;
+    font-size: 3.8rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px var(--db-orange), 0 0 25px var(--db-yellow);
     z-index: 2;
 }
 
-.overlay {
-    position: absolute;
+/* === INTRO === */
+.intro {
+    text-align: center;
+    padding: 20px 30px;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+/* === GALERÍA === */
+.gallery {
+    padding: 50px 20px;
+}
+
+.grid-gallery {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+}
+
+/* Tarjetas de imagen */
+.item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 12px;
+    transition: .3s ease;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.1);
+}
+
+.item:hover {
+    transform: translateY(-8px) scale(1.04);
+    border-color: var(--db-orange);
+    box-shadow: 0 0 18px var(--db-orange);
+}
+
+.item img {
+    width: 100%;
+    aspect-ratio: 9 / 12;
+    object-fit: contain;
+    background: #111;
+    border-radius: 10px;
+}
+
+.item h3 {
+    margin: 8px 0 3px;
+    font-size: 1.05rem;
+    color: var(--db-yellow);
+    text-shadow: 0 0 6px var(--db-orange);
+}
+
+.item p {
+    color: #ccc;
+    font-size: .85rem;
+    margin-bottom: 4px;
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+    position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-}
-
-/* ===== Cajas en general ===== */
-section {
-    padding: 40px 10px;
-}
-
-.palette-container,
-.gradients {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* ===== Paleta de colores - Ejercicio C1 ===== */
-.color-box {
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px black;
-}
-
-.hex  { background: #ff5733; }
-.name { background: blue; }
-.rgb  { background: rgb(60, 179, 113); }
-.rgba { background: rgba(255, 255, 0, 0.5); }
-.mix  { background: rgb(50%, 20%, 80%); }
-
-/* ===== Gradientes - Ejercicio C3 ===== */
-.gradient-box {
-    width: 200px;
-    height: 120px;
-    border-radius: 10px;
+    background: rgba(0,0,0,.92);
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
 }
 
-.horizontal {
-    background: linear-gradient(to right, red, black);
+.lightbox.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
-.angled {
-    background: linear-gradient(45deg, cyan, purple);
+.lb-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+    background: none;
+    color: var(--db-yellow);
+    border: none;
+    cursor: pointer;
+    text-shadow: 0 0 8px var(--db-orange);
 }
 
-.radial {
-    background: radial-gradient(circle, orange, brown);
+#lbImg {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 12px;
+    animation: fadeImg .35s ease;
+    box-shadow: 0 0 25px var(--db-orange);
 }
 
-/* ===== Transparencia - Ejercicio A4 ===== */
-.transparencia {
-    background: rgba(255, 0, 0, 0.4);
-    padding: 30px;
-    border-radius: 10px;
+@keyframes fadeImg {
+    from { opacity: 0; transform: scale(.93); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== Mini banner - Ejercicio C4 ===== */
-.mini-banner {
-    background: linear-gradient(to right, #ff0000, #000000);
+/* === FOOTER === */
+footer {
+    text-align: center;
     padding: 25px;
-    margin: 30px auto;
-    border-radius: 10px;
-    width: 70%;
-    font-size: 20px;
-    background-image: url("https://cdn.pixabay.com/photo/2015/12/09/16/33/motorcycle-1084987_640.jpg");
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: contain;
-}
-
-/* ===== Conversión Hex → RGB - Ejercicio A5 ===== */
-.hexToRgb {
-    background: rgb(30, 144, 255);
-    padding: 20px;
-    width: 60%;
-    margin: auto;
-    border-radius: 10px;
-}
-
-/* ===== Imagen de fondo adicional - Ejercicio A3 ===== */
-.fondo-img {
-    background-image: url("https://cdn.pixabay.com/photo/2016/08/28/11/26/bike-1625708_640.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 70px 20px;
-    margin-top: 50px;
-}
-
-.fondo-img h2, .fondo-img p {
-    background: rgba(0, 0, 0, 0.5);
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 6px;
+    background: #111;
+    color: var(--db-yellow);
+    border-top: 3px solid var(--db-orange);
+    margin-top: 40px;
+    text-shadow: 0 0 6px var(--db-orange);
 }
